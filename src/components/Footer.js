@@ -9,27 +9,31 @@ export default function Footer() {
                     <div className="card-body social col-6">
                         <a href="https://www.instagram.com/"
                             target="_blank"
+                            rel="noreferrer"
                             className="insta social">
                             <Instagram />
                         </a>
                         <a href="https://twitter.com/"
                             target="_blank"
+                            rel="noreferrer"
                             className="twitter social">
                             <Twitter />
                         </a>
                         <a href="https://www.twitch.tv/"
                             target="_blank"
+                            rel="noreferrer"
                             className="twitch social">
                             <Twitch />
                         </a>
                         <a href="https://www.youtube.com"
                             target="_blank"
+                            rel="noreferrer"
                             className="youtube social">
                             <Youtube />
                         </a>
                     </div>
                     <div className="card-body contact col-6">
-                        Contact
+                        Contact:
                     </div>
                 </div>
             </div>
