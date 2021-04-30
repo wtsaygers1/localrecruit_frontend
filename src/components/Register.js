@@ -1,72 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useAuth } from '../utilities/AuthContext'
 
 
 export default function Register() {
+    const { register } = useAuth()
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-function validate() {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  }
+    const [data, setData] = useState({});
+    const handleChange = e => setData(prevState => ({ ...prevState, [e.target.name]: e.target.value }));
+
+    const APIpost = e => {
+        e.preventDefault()
+        register(data)
+    }
 
     return (
         <>
             <div className="register form">
-                <form class="row g-3 needs-validation" novalidate>
-                    <div class="mb-3">
-                        <label for="validationCustom01" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="validationCustom01" required />
-                        <div class="valid-feedback">
+                <form className="row g-3 needs-validation"  onSubmit={APIpost} noValidate>
+                    <div className="mb-3">
+                        <label htmlFor="validationCustom01" className="form-label">First name</label>
+                        <input type="text" className="form-control" id="validationCustom01" onChange={handleChange} name='first_name' value={data.first_name || ''} required />
+                        <div className="valid-feedback">
                             Looks good!
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="validationCustom02" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="validationCustom01" required />
-                        <div class="valid-feedback">
+                    <div className="mb-3">
+                        <label htmlFor="validationCustom02" className="form-label">Last name</label>
+                        <input type="text" className="form-control" id="validationCustom02" onChange={handleChange} name='last_name' value={data.last_name || ''} required />
+                        <div className="valid-feedback">
                             Looks good!
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="validationCustomEmail" class="form-label">Email</label>
-                        <div class="input-group has-validation">
-                            <input type="email" class="form-control" id="validationCustomEmail" aria-describedby="inputGroupPrepend" required />
-                            <div class="invalid-feedback">
+                    <div className="mb-3">
+                        <label htmlFor="validationCustomEmail" className="form-label">Email</label>
+                        <div className="input-group has-validation">
+                            <input type="email" className="form-control" id="validationCustomEmail" aria-describedby="inputGroupPrepend"  onChange={handleChange} name='email' value={data.email || ''} required />
+                            <div className="invalid-feedback">
                                 Please input valid email format
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="DOB">Date of Birth</label>
+                    <div className="mb-3">
+                        <label htmlFor="DOB">Date of Birth</label>
                         <input type="date" id="DOB" name="trip-start"
-                            min="1900-01-01" max="2002-01-01" requried />    
-                        <div class="invalid-feedback">
+                            min="1900-01-01" max="2002-01-01"  onChange={handleChange} name='date_of_birth' value={data.date_of_birth || ''} requried />    
+                        <div className="invalid-feedback">
                             Please select valid date
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" required />
-                        <div class="invalid-feedback">
+                    <div className="mb-3">
+                        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                        <input type="password" className="form-control" id="exampleInputPassword1" onChange={handleChange} name='password' value={data.password || ''} required />
+                        <div className="invalid-feedback">
                             Password must be at least 8 characters long
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
         </>
