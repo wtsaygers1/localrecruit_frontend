@@ -1,7 +1,7 @@
 import React, { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import Register from './Register';
+import RegisterForm from './RegisterForm';
 import { AuthProvider } from '../utilities/AuthContext';
 // import logo from './logo.svg';
 // import './App.css';
@@ -16,7 +16,9 @@ function App() {
             <Switch>
 
               <Route path="/register">
-                <Register />
+                <RegisterForm 
+                  register
+                />
               </Route>
 
             </Switch>
