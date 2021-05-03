@@ -19,9 +19,9 @@ export default function Header() {
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Sports</a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><NavLink className="dropdown-item" to="/sport/soccer" activeClassName="active">Soccer</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/sport/volleyball" activeClassName="active">Volleyball</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/sport/bocce" activeClassName="active">Bocce</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/sport/spikeball" activeClassName="active">Spike Ball</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/sport/discgolf" activeClassName="active">Disc Golf</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/sport/kanjam" activeClassName="active">Kan Jam</NavLink></li>
                             </ul>
                         </li>
                     </ul>

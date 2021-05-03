@@ -18,14 +18,14 @@ export default function Register() {
             <div className="register form">
                 <form className="row g-3 needs-validation"  onSubmit={APIpost} noValidate>
                     <div className="mb-3">
-                        <label htmlFor="validationCustom01" className="form-label">First name</label>
+                        <label htmlFor="validationCustom01" className="form-label">First Name</label>
                         <input type="text" className="form-control" id="validationCustom01" onChange={handleChange} name='first_name' value={data.first_name || ''} required />
                         <div className="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="validationCustom02" className="form-label">Last name</label>
+                        <label htmlFor="validationCustom02" className="form-label">Last Name</label>
                         <input type="text" className="form-control" id="validationCustom02" onChange={handleChange} name='last_name' value={data.last_name || ''} required />
                         <div className="valid-feedback">
                             Looks good!
