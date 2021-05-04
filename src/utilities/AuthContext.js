@@ -19,6 +19,7 @@ export const AuthHelper = () => {
         const APItoken = res.data.data.token || res.data.access_token;
         setToken(APItoken)
         window.localStorage.setItem('token', APItoken)
+        console.log('successful login')
     }
 
     function destroyToken(){
