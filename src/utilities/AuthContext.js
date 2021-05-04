@@ -1,53 +1,55 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect, useContext, useHistory } from "react";
 import { axiosHelper } from "./axiosHelper";
+import history from './history';
 
 const AuthContext = createContext({});
 
 export const AuthHelper = () => {
-
-    const [token, setToken] = useState('')
+    const [token, setToken] = useState('');
 
     useEffect(() => {
         let lsToken = window.localStorage.getItem('token');
 
-        if(lsToken){
+        if (lsToken) {
             setToken(lsToken)
         }
     }, [])
 
-    function saveToken(res){
+    function saveToken(res) {
         const APItoken = res.data.data.token || res.data.access_token;
         setToken(APItoken)
         window.localStorage.setItem('token', APItoken)
-        console.log('successful login')
+        // console.log('successful reg')
+        history.replace('/');
+        console.log(history);
     }
 
-    function destroyToken(){
+    function destroyToken() {
         setToken('')
         window.localStorage.removeItem('token');
     }
 
-    function register(registrationData){
+    function register(registrationData) {
         axiosHelper({
             data: registrationData,
-            method:'post', 
-            url:'/api/register', 
+            method: 'post',
+            url: '/api/register',
             successMethod: saveToken
         })
     }
 
-    function login(loginData){
+    function login(loginData) {
         axiosHelper({
             data: loginData,
-            method:'post', 
-            url:'/oauth/token', 
+            method: 'post',
+            url: '/oauth/token',
             successMethod: saveToken
         })
     }
 
-    function logout(){
-        axiosHelper({ 
-            url:'/api/auth/logout', 
+    function logout() {
+        axiosHelper({
+            url: '/api/auth/logout',
             successMethod: destroyToken,
             token
         })
@@ -61,9 +63,9 @@ export const AuthProvider = (props) => {
     const initialContext = AuthHelper()
 
     return (
-    <AuthContext.Provider value={initialContext}>
-        {props.children}
-    </AuthContext.Provider>
+        <AuthContext.Provider value={initialContext}>
+            {props.children}
+        </AuthContext.Provider>
     )
 }
 
