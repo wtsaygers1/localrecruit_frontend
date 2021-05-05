@@ -17,19 +17,16 @@ function App() {
           <Header />
           <div className="container">
             <Switch>
-
               <Route path="/register">
                 <RegisterForm 
                   register
                 />
               </Route>
-
               <Route path="/login">
                 <Login
                   login
                 />
               </Route>
-
             </Switch>
           </div>
           <Footer />

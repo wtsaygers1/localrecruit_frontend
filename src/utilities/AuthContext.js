@@ -9,18 +9,22 @@ export const AuthHelper = () => {
 
     useEffect(() => {
         let lsToken = window.localStorage.getItem('token');
-
         if (lsToken) {
             setToken(lsToken)
         }
     }, [])
 
     function saveToken(res) {
-        const APItoken = res.data.data.token || res.data.access_token;
-        setToken(APItoken)
+        console.log(res) // Check response
+        let APItoken; // Initalize variable
+        if (res.config.url === "https://localrecruit_backend-wtsaygers1973145.codeanyapp.com/api/register") {
+            APItoken = res.data.data.token
+        } else if (res.config.url === "https://localrecruit_backend-wtsaygers1973145.codeanyapp.com/oauth/token") {
+            APItoken = res.data.access_token
+        }
+        setToken(APItoken);
         window.localStorage.setItem('token', APItoken)
         history.replace('/');
-        console.log(history);
     }
 
     function destroyToken() {

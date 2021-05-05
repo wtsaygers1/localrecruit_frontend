@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import { useAuth } from '../utilities/AuthContext';
 
 export default function Header() {
+    const { token } = useAuth()
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -26,8 +27,8 @@ export default function Header() {
                         </li>
                     </ul>
                     <form className="d-flex">
-                        <button className="btn btn-outline-success" type="submit"><NavLink to="/register">Register</NavLink></button>
-                        <button className="btn btn-outline-success" type="submit"><NavLink to="/login">Login</NavLink></button>
+                        {!token && <button className="btn btn-outline-success" type="submit"><NavLink to="/register">Register</NavLink></button>}
+                        {!token && <button className="btn btn-outline-success" type="submit"><NavLink to="/login">Login</NavLink></button>}
                     </form>
                 </div>
             </div>
