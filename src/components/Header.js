@@ -3,11 +3,17 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '../utilities/AuthContext';
 
 export default function Header() {
-    const { token } = useAuth()
+    const { token, logout } = useAuth()
+    const handleSubmit = e => {
+        e.preventDefault()
+        logout()
+        console.log('successful logout')
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <NavLink className="navbar-brand" to="/">LocalRecruit</NavLink>
+                <NavLink className="navbar-brand" to="/">Sports Ball</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -21,14 +27,15 @@ export default function Header() {
                                 Sports</a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><NavLink className="dropdown-item" to="/sport/spikeball" activeClassName="active">Spike Ball</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/sport/discgolf" activeClassName="active">Disc Golf</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/sport/cornhole" activeClassName="active">Corn Hole</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/sport/kanjam" activeClassName="active">Kan Jam</NavLink></li>
                             </ul>
                         </li>
                     </ul>
-                    <form className="d-flex">
+                    <form className="d-flex" onSubmit={handleSubmit}>
                         {!token && <button className="btn btn-outline-success" type="submit"><NavLink to="/register">Register</NavLink></button>}
                         {!token && <button className="btn btn-outline-success" type="submit"><NavLink to="/login">Login</NavLink></button>}
+                        {token && <button className="btn btn-outline-success" type="submit" onClick={handleSubmit}><NavLink to="/">Logout</NavLink></button>}
                     </form>
                 </div>
             </div>

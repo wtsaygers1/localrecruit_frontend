@@ -30,6 +30,7 @@ export const AuthHelper = () => {
     function destroyToken() {
         setToken('')
         window.localStorage.removeItem('token');
+        history.replace('/');
     }
 
     function register(registrationData) {
@@ -59,7 +60,7 @@ export const AuthHelper = () => {
 
     function logout() {
         axiosHelper({
-            url: '/api/auth/logout',
+            url: '/api/logout',
             successMethod: destroyToken,
             token
         })

@@ -70,7 +70,8 @@ export default function Register() {
                 <div className="mb-3">
                     <label htmlFor="DOB">Date of Birth</label>
                     <input className={`form-control ${values.date_of_birth && 'is-valid'} ${!!errors.date_of_birth && 'is-invalid'}`}
-                    type="date" id="DOB" 
+                    type="date" 
+                    id="DOB" 
                     name="trip-start"
                     min="1900-01-01" max="2011-01-01" 
                     onChange={handleChange} 
