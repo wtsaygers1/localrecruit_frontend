@@ -3,6 +3,7 @@ import { Router } from 'react-router';
 import Header from './Header';
 import Footer from './Footer';
 import RegisterForm from './RegisterForm';
+import Login from './Login';
 import { AuthProvider } from '../utilities/AuthContext';
 import history from '../utilities/history';
 // import logo from './logo.svg';
@@ -20,6 +21,12 @@ function App() {
               <Route path="/register">
                 <RegisterForm 
                   register
+                />
+              </Route>
+
+              <Route path="/login">
+                <Login
+                  login
                 />
               </Route>
 

@@ -1,27 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useAuth } from '../utilities/AuthContext'
 
-export default function Register() {
+
+export default function Login() {
+    const { login } = useAuth()
+    const [loginData, setLoginData] = useState({})
+    const handleChange = e => setLoginData(prevState => ({...prevState, [e.target.name]: e.target.value }));
+    const handleSubmit = e => {
+        e.preventDefault()
+        login(loginData)
+        console.log('handleSubmit')
+    }
+
     return (
-        <>
-            <Header />
-            <div class="login card">
-                <div class="login card-body">
-                    <div className="mb-3">
-                        <label for="exampleFormControlInput1" className="form-label">Email address</label>
-                        <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-                    </div>
-                    <div className="mb-3 row">
-                        <label for="inputPassword" className="col-sm-2 col-form-label">Password</label>
-                        <div className="col-sm-10">
-                            <input type="password" className="form-control" id="inputPassword" />
-                        </div>
-                    </div>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="button">Login</button>
+            <form onSubmit={handleSubmit}>
+                <div className="row mb-3">
+                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
+                    <div className="col-sm-10">
+                        <input 
+                            type="email" 
+                            name="username"
+                            className="form-control" 
+                            placeholder="Enter email"
+                            aria-label="email"
+                            id="inputEmail3"
+                            vaue={loginData.username || ''}  
+                            onChange={handleChange}   
+                        />
                     </div>
                 </div>
-            </div>
-            <Footer />
-        </>
-    )
+                <div className="row mb-3">
+                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
+                    <div className="col-sm-10">
+                        <input 
+                        type="password" 
+                        name="password"
+                        className="form-control" 
+                        placeholder="Enter password"
+                        aria-label="password"
+                        id="inputPassword3" 
+                        value={loginData.password || ''}
+                        onChange={handleChange}    
+                        />
+                    </div>
+                </div>
+                <button type="submit" className="btn btn-primary">Login</button>
+            </form>
+    );
 }

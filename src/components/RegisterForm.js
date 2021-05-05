@@ -1,4 +1,3 @@
-// import React, { useState } from 'react'
 import { useAuth } from '../utilities/AuthContext'
 import validate from './RegisterFormValidationRules'
 import useForm from './useForm'

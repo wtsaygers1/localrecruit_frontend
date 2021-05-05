@@ -12,7 +12,7 @@ export function axiosHelper(props){
 
     const API_URL = 'https://localrecruit_backend-wtsaygers1973145.codeanyapp.com'
 
-console.log(data);
+// console.log(data);
     return axios({
         method,
         url: API_URL + url,

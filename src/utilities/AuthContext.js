@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext, useHistory } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { axiosHelper } from "./axiosHelper";
 import history from './history';
 
@@ -19,7 +19,6 @@ export const AuthHelper = () => {
         const APItoken = res.data.data.token || res.data.access_token;
         setToken(APItoken)
         window.localStorage.setItem('token', APItoken)
-        // console.log('successful reg')
         history.replace('/');
         console.log(history);
     }
@@ -40,11 +39,18 @@ export const AuthHelper = () => {
 
     function login(loginData) {
         axiosHelper({
-            data: loginData,
+            data: {
+                grant_type: 'password',
+                client_id: '2',
+                client_secret: 'XknnHxlg1V4UjqhoGqpZZ3cAqsX0AiftZaALcJ5b',
+                scope: '*',
+                ...loginData,
+            },
             method: 'post',
             url: '/oauth/token',
             successMethod: saveToken
         })
+        console.log('successful login')
     }
 
     function logout() {
