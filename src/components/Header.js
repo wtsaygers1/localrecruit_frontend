@@ -29,6 +29,7 @@ export default function Header() {
                                 <li><NavLink className="dropdown-item" to="/sport/spikeball" activeClassName="active">Spike Ball</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/sport/cornhole" activeClassName="active">Corn Hole</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/sport/kanjam" activeClassName="active">Kan Jam</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/sport/kanjam" activeClassName="active">Pickleball</NavLink></li>
                             </ul>
                         </li>
                     </ul>

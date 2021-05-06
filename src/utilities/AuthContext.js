@@ -47,7 +47,7 @@ export const AuthHelper = () => {
             data: {
                 grant_type: 'password',
                 client_id: '2',
-                client_secret: 'XknnHxlg1V4UjqhoGqpZZ3cAqsX0AiftZaALcJ5b',
+                client_secret: '4HPeYA6Tyuk0eyyTsIiZef7ur0IGOaMh6TdE4fI8',
                 scope: '*',
                 ...loginData,
             },

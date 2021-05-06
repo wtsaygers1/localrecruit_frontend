@@ -77,7 +77,7 @@ export default function Register() {
                     onChange={handleChange} 
                     name='date_of_birth' 
                     value={values.date_of_birth || ''} 
-                    requried
+                    required
                     />
                     <div className="invalid-feedback">
                             {errors.date_of_birth}
