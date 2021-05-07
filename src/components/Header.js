@@ -2,14 +2,16 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../utilities/AuthContext';
 
-export default function Header() {
+export default function Header(props) {
     const { token, logout } = useAuth()
     const handleSubmit = e => {
         e.preventDefault()
         logout()
         console.log('successful logout')
     }
-
+    const mapSportLinks = props.sports.map((sport, index) => {
+        return <li key={index}><NavLink className="dropdown-item" to={`/sport/${sport.url}`} activeClassName="active">{sport.name}</NavLink></li>
+    })
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -26,10 +28,7 @@ export default function Header() {
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Sports</a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><NavLink className="dropdown-item" to="/sport/spikeball" activeClassName="active">Spike Ball</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/sport/cornhole" activeClassName="active">Corn Hole</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/sport/kanjam" activeClassName="active">Kan Jam</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/sport/kanjam" activeClassName="active">Pickleball</NavLink></li>
+                                {mapSportLinks}
                             </ul>
                         </li>
                     </ul>
