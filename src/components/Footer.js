@@ -33,7 +33,10 @@ export default function Footer() {
                         </a>
                     </div>
                     <div className="card-body contact col-6">
-                        Contact:
+                        Contact:<br />
+                        Chuck'n Dingers<br />
+                        President of Sports<br />
+                        710 Hall of Fame Blvd<br />
                     </div>
                 </div>
             </div>
