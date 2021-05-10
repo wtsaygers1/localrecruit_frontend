@@ -37,8 +37,11 @@ function App() {
           <Header 
             sports={sports}
           />
-          <div className="container">
+          <div className="container pt-4 pb-4">
             <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
               <Route path="/register">
                 <RegisterForm
                   register
