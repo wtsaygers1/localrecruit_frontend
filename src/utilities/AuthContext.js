@@ -17,9 +17,9 @@ export const AuthHelper = () => {
     function saveToken(res) {
         console.log(res) // Check response
         let APItoken; // Initalize variable
-        if (res.config.url === "https://localrecruit_backend-wtsaygers1973145.codeanyapp.com/api/register") {
+        if (res.config.url === "https://sportsball_backend-wtsaygers1973145.codeanyapp.com/api/register") {
             APItoken = res.data.data.token
-        } else if (res.config.url === "https://localrecruit_backend-wtsaygers1973145.codeanyapp.com/oauth/token") {
+        } else if (res.config.url === "https://sportsball_backend-wtsaygers1973145.codeanyapp.com/oauth/token") {
             APItoken = res.data.access_token
         }
         setToken(APItoken);
@@ -47,7 +47,7 @@ export const AuthHelper = () => {
             data: {
                 grant_type: 'password',
                 client_id: '2',
-                client_secret: '3I4QKjHNLHhnXiCvcNPfuex3ykV929S5smq6AJez',
+                client_secret: 'JYovtV7SGb3pJDAPjw87Qw58InqA2vdpnS2BDIaT',
                 scope: '*',
                 ...loginData,
             },

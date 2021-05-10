@@ -10,7 +10,7 @@ export function axiosHelper(props){
         failureMethod = e => console.log(e)
     } = props; //setting default prop values
 
-    const API_URL = 'https://localrecruit_backend-wtsaygers1973145.codeanyapp.com'
+    const API_URL = 'https://sportsball_backend-wtsaygers1973145.codeanyapp.com'
 
 // console.log(data);
     return axios({

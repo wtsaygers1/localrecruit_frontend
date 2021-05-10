@@ -15,9 +15,9 @@ export default function SportPage(props) {
                         <>
                             <h3>{sportObj.name}</h3>
                             <div className="card">
-                                <img src="..." className="card-img-top" alt="..." />
+                                <img src={sportObj.image_url} className="card-img-top" alt={sportObj.name} />
                                 <div className="card-body">
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <p className="card-text">{sportObj.description}</p>
                                 </div>
                             </div>
                         </> : <h3>Sorry, {name} is not available at this time</h3>

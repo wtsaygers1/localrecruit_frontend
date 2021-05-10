@@ -2,7 +2,7 @@ import React, { Switch, Route } from 'react-router-dom';
 import { Router } from 'react-router';
 import { useState, useEffect } from 'react';
 import Header from './Header';
-// import Home from './Home';
+import Home from './Home';
 import About from './About';
 import Footer from './Footer';
 import RegisterForm from './RegisterForm';
@@ -54,9 +54,11 @@ function App() {
                   sports={sports}
                 />
               </Route>
+              <Route path="/about">
+                <About />
+              </Route>
             </Switch>
           </div>
-          <About />
           <Footer />
         </Router>
       </AuthProvider>
