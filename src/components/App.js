@@ -12,7 +12,7 @@ import history from '../utilities/history';
 import SportPage from './SportPage'
 import { axiosHelper } from '../utilities/axiosHelper';
 // import logo from './logo.svg';
-// import './App.css';
+import '../App.css';
 
 function App() {
 
