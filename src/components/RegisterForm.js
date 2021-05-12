@@ -20,7 +20,7 @@ export default function Register() {
     }
 
     return (
-        <div className="register form">
+        <div className="register form subtext">
             <form className="row g-3 needs-validation" onSubmit={handleSubmit} noValidate>
                 <div className="mb-3">
                     <label htmlFor="validationCustom01" className="form-label">First Name</label>

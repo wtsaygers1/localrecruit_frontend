@@ -4,7 +4,7 @@ import { Instagram, Twitter, Twitch, Youtube } from 'react-bootstrap-icons';
 export default function Footer() {
     return (
         <div className="row">
-            <div className="footer">
+            <div className="footer subtext">
                 <div className="card">
                     <div className="card-body social col-6">
                         <a href="https://www.instagram.com/"

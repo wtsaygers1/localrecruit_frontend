@@ -13,7 +13,7 @@ export default function Login() {
     }
 
     return (
-            <form onSubmit={handleSubmit}>
+            <form className="subtext" onSubmit={handleSubmit}>
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-10">
